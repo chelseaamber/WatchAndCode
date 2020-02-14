@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>To Do List</title>
+</head>
+
+<body>
+
+    <h1>To Do List App</h1>
+    <h2>Subsection title</h2>
+    <p>text goes here (instructions)</p>
+
+    <script>
+        var todoList = {
+            todos =[],
+
+            displayToDo: function () {
+                if (this.todos == 0) {
+                    console.log('to do list is empty!')
+                } else {
+                    console.log('To Do List:'); 
+                    for (var i = 0; i < this.todos.length; i++) {
+                        console.log(this.todos[i].todoText, 'complete?:', this.todos[i].completed);
+                        }
+                    }
+            },
+
+            displayIncomplete: function () {
+                for (var i = 0; i < this.todos.length; i++) {
+                    if (this.todos[i].completed == false) {
+                        this.displayToDo();
+                    }
+                }
+            },
+
+            displayComplete: function () {
+                for (var i = 0; i < this.todos.length; i++) {
+                    if (this.todos[i].completed == true) {
+                        this.displayToDo();
+                    }
+                }
+            },
+
+            addToDo: function (inputtodo) {
+                this.todos.push({
+                    todoText: inputtodo,
+                    completed: false
+                });
+                this.displayToDo();
+            },
+
+            changeToDo: function (numberoftask, changetothis) {
+                this.todos[numberoftask].todoText = changetothis,
+                this.displayToDo();
+            }, 
+
+            deleteToDo: function (numberoftask) {
+                this.todos.splice(numberoftask);
+                this.displayToDo();
+            },
+
+            toggleCompleted: function (numberoftask) {
+                var currentToDo = this.todos[numberoftask];
+                currentToDo.completed = !currentToDo.completed
+            }
+        }
+    </script>
+
+</body>
+</html>
