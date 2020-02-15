@@ -1,28 +1,55 @@
 ﻿// To Do List inspired by https://watchandcode.com course
-//
-// requirements:
-// - create a space for todos to exist ✓
-// - create ability to add todos ✓
-// - create ability to display todos ✓
-// object orient everything
-// - store todos on an object
-// html & css requirements:
-// - change DisplayToDo() 
-// - set up page display
-// - create buttons & interactions of these buttons
-// - CSS 
 
-var todo = {
+var todoList = {
     todos =[],
+
     displayToDo: function () {
-        console.log('To Do List:', this.todos);
+        if (this.todos == 0) {
+            console.log('to do list is empty!')
+        } else {
+            console.log('To Do List:');
+            for (var i = 0; i < this.todos.length; i++) {
+                console.log(this.todos[i].todoText, 'complete?:', this.todos[i].completed);
+            }
+        }
     },
+
+    displayIncomplete: function () {
+        for (var i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].completed == false) {
+                this.displayToDo();
+            }
+        }
+    },
+
+    displayComplete: function () {
+        for (var i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].completed == true) {
+                this.displayToDo();
+            }
+        }
+    },
+
     addToDo: function (inputtodo) {
-        this.todos.push(inputtodo);
+        this.todos.push({
+            todoText: inputtodo,
+            completed: false
+        });
         this.displayToDo();
     },
+
     changeToDo: function (numberoftask, changetothis) {
-        this.todos[numberoftask] = changetothis
+        this.todos[numberoftask].todoText = changetothis,
+            this.displayToDo();
+    },
+
+    deleteToDo: function (numberoftask) {
+        this.todos.splice(numberoftask);
         this.displayToDo();
+    },
+
+    toggleCompleted: function (numberoftask) {
+        var currentToDo = this.todos[numberoftask];
+        currentToDo.completed = !currentToDo.completed
     }
 }

@@ -1,0 +1,44 @@
+﻿/* Entire body of the HTML document (can be overridden by specific selectors). */
+body {
+    background-color: powderblue;
+}
+
+h1, h2 {
+    font-family: Courier New;
+}   
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold; }
+    h1 {
+
+    }
+
+p {
+    
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+/* Applies to elements with <... class="someclass"> specified. */
+.button {
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: lightgray;
+    color: white
+}
